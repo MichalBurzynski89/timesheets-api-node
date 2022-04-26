@@ -6,7 +6,7 @@ const timesheets = _.times(100, n => ({
   user_id: faker.internet.email(),
   date: faker.date.recent(),
   project: faker.random.arrayElement(['StoreZero', 'Auth0 Dashboard']),
-  hours: faker.random.number({ min: 4, max: 8 }),
+  hours: faker.datatype.number({ min: 4, max: 8 }),
   approved: false
 }));
 
