@@ -2,7 +2,7 @@ const faker = require('faker');
 const _ = require('lodash');
 
 const timesheets = _.times(100, n => ({
-  id: n,
+  id: n + 1,
   user_id: faker.internet.email(),
   date: faker.date.recent(),
   project: faker.random.arrayElement(['StoreZero', 'Auth0 Dashboard']),

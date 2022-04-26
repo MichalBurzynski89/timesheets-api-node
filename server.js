@@ -25,6 +25,7 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.use('/api/timesheets', require('./routes/timesheetRoutes'));
+app.use('/api/approvals', require('./routes/approvalRoutes'));
 
 // Launch the API Server at localhost:8080
 app.listen(port, () => console.log(`Server started on port ${port}`));
