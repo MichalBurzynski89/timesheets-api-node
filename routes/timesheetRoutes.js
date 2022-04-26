@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { checkJwt } = require('./middleware/jwtMiddleware');
+const { checkJwt } = require('../middleware/jwtMiddleware');
 const jwtAuthz = require('express-jwt-authz');
 const { addTimesheet, getAllTimesheets } = require('../controllers/timesheetController');
 
