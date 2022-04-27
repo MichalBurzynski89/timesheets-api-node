@@ -18,7 +18,7 @@
     "express-jwt": "^7.5.0",
     "express-jwt-authz": "^2.4.1",
     "faker": "^5.5.3",
-    "jwks-rsa": "^2.0.5",
+    "jwks-rsa": "^2.1.0",
     "lodash": "^4.17.21"
   },
   "devDependencies": {
