@@ -9,7 +9,7 @@ const addTimesheet = (req, res) => {
   // determine id for the new timesheet
   const max = Math.max(...timesheets.map(({ id }) => id));
   timesheet.id = max + 1;
-  timesheet.user_id = req.user['https://api.exampleco.com/email'];
+  timesheet.user_id = req.auth['https://api.exampleco.com/email'];
   timesheet.approved = false;
 
   // append the timesheet
@@ -25,7 +25,7 @@ const addTimesheet = (req, res) => {
 const getAllTimesheets = (req, res) => {
   // Get timesheet entries for this user
   const userEntries = timesheets.filter(
-    entry => entry.user_id === req.user['https://api.exampleco.com/email']
+    entry => entry.user_id === req.auth['https://api.exampleco.com/email']
   );
 
   // send the response

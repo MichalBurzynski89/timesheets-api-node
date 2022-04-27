@@ -1,13 +1,17 @@
 const express = require('express');
 const router = express.Router();
-const { checkJwt } = require('../middleware/jwtMiddleware');
-const jwtAuthz = require('express-jwt-authz');
+
+const {
+  checkJwt,
+  checkScopes
+} = require('../middleware/jwtMiddleware');
+
 const {
   approveTimesheet,
   getUnapprovedTimesheets
 } = require('../controllers/approvalController');
 
-router.put('/:id', checkJwt, jwtAuthz(['approve:timesheets']), approveTimesheet);
-router.get('/', checkJwt, jwtAuthz(['approve:timesheets']), getUnapprovedTimesheets);
+router.put('/:id', checkJwt, checkScopes(['approve:timesheets']), approveTimesheet);
+router.get('/', checkJwt, checkScopes(['approve:timesheets']), getUnapprovedTimesheets);
 
 module.exports = router;

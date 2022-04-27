@@ -1,5 +1,6 @@
 const { expressjwt: jwt } = require('express-jwt');
 const jwksRsa = require('jwks-rsa');
+const jwtAuthz = require('express-jwt-authz');
 
 // Create middleware for checking the JWT
 const checkJwt = jwt({
@@ -17,4 +18,9 @@ const checkJwt = jwt({
   algorithms: ['RS256']
 });
 
-module.exports = { checkJwt };
+const checkScopes = scopes => jwtAuthz(scopes, { customUserKey: 'auth' });
+
+module.exports = {
+  checkJwt,
+  checkScopes
+};
